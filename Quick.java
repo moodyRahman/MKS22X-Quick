@@ -13,6 +13,8 @@ public static void partition(int[] data, int start, int end){
 	Random randomGenerator = new Random();
 	int randomIndex = randomGenerator.nextInt(end - start + 1) + start;
 
+	randomIndex = 5;
+
 	int pivot = data[randomIndex];
 	int indexAtLow = start - 1;
 
