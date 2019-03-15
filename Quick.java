@@ -28,8 +28,11 @@ public static void partition(int[] data, int start, int end){
 public static void main(String[] args) {
 	int[] arr = {4, 78, 23, 2, 4, 8, 0, 5, 3, 2};
 
-	for (int x = 0; x < 20; x++) {
-		Quick.partition(arr, 10, 15);
+	Quick.partition(arr, 0, arr.length - 1);
+
+	for (int x : arr) {
+		System.out.print(x);
+		System.out.print(", ");
 	}
 }
 }
