@@ -13,20 +13,18 @@ public static void partition(int[] data, int start, int end){
 	Random randomGenerator = new Random();
 	int randomIndex = randomGenerator.nextInt(end - start + 1) + start;
 
-	randomIndex = 8;
+	randomIndex = 0;
 
 	int pivot = randomIndex;
 	int indexAtLow = start - 1;
+	int indexAtHigh = end + 1;
 
-	for (int lowIncrement = start; lowIncrement < end; lowIncrement++){
-
-        	if (data[lowIncrement] <= pivot){
-			indexAtLow++;
-			swap(data, indexAtLow, lowIncrement);
-		}
+	while(indexAtLow < indexAtHigh){
+		for (indexAtLow++; data[indexAtLow] < pivot; indexAtLow++);
+		for (indexAtHigh--; data[indexAtHigh] > pivot; indexAtHigh--);
+		if (indexAtLow < indexAtHigh)
+		swap(data, indexAtLow, indexAtHigh);
 	}
-
-	swap(data, indexAtLow + 1, pivot);
 }
 
 public static void main(String[] args) {
