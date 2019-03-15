@@ -13,9 +13,9 @@ public static void partition(int[] data, int start, int end){
 	Random randomGenerator = new Random();
 	int randomIndex = randomGenerator.nextInt(end - start + 1) + start;
 
-	randomIndex = 5;
+	randomIndex = 8;
 
-	int pivot = data[randomIndex];
+	int pivot = randomIndex;
 	int indexAtLow = start - 1;
 
 	for (int lowIncrement = start; lowIncrement < end; lowIncrement++){
@@ -25,10 +25,12 @@ public static void partition(int[] data, int start, int end){
 			swap(data, indexAtLow, lowIncrement);
 		}
 	}
+
+	swap(data, indexAtLow + 1, pivot);
 }
 
 public static void main(String[] args) {
-	int[] arr = {4, 78, 23, 2, 4, 8, 0, 5, 3, 2};
+	int[] arr = {4, 78, 23, 10, 4, 8, 0, 5, 3, 2};
 
 	Quick.partition(arr, 0, arr.length - 1);
 
