@@ -13,11 +13,13 @@ public static void partition(int[] data, int start, int end){
 	Random randomGenerator = new Random();
 	int randomIndex = randomGenerator.nextInt(end - start + 1) + start;
 
-	randomIndex = 0;
+	randomIndex = 6;
 
 	int pivot = randomIndex;
+	// System.out.print(randomIndex);
+	// System.out.println();
 	int indexAtLow = start - 1;
-	int indexAtHigh = end + 1;
+	int indexAtHigh = end;
 
 	while(indexAtLow < indexAtHigh){
 		for (indexAtLow++; data[indexAtLow] < pivot; indexAtLow++);
