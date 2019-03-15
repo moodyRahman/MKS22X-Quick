@@ -13,9 +13,16 @@ public static void partition(int[] data, int start, int end){
 	Random randomGenerator = new Random();
 	int randomIndex = randomGenerator.nextInt(end - start + 1) + start;
 
-	System.out.println(randomIndex);
+	int pivot = data[randomIndex];
+	int indexAtLow = start - 1;
 
+	for (int lowIncrement = start; lowIncrement < end; lowIncrement++){
 
+        	if (data[lowIncrement] <= pivot){
+			indexAtLow++;
+			swap(data, indexAtLow, lowIncrement);
+		}
+	}
 }
 
 public static void main(String[] args) {
