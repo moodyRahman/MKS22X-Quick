@@ -10,22 +10,21 @@ public static void swap(int[] data, int idxa, int idxb){
 
 
 public static int partition(int[] data, int start, int end){
-	Random randomGenerator = new Random();
-	int randomIndex = randomGenerator.nextInt(end - start + 1) + start;
-
-	randomIndex = 6;
-
+	// pivot (Element to be placed at right position)
 	int pivot = data[end];
-	int indexSmall= (start - 1 );
-
-	for (int indexBig= start; indexBig<= end - 1; indexBig++){
-		if (data[indexBig] <= pivot){
-			indexSmall++;
-			swap(data, indexSmall, indexBig);
+	int i = (start - 1);  // Index of smaller element
+	for (int j = start; j <= end- 1; j++){
+        // If current element is smaller than or
+        // equal to pivot
+        	if (data[j] <= pivot){
+            		i++;    // increment index of smaller element
+            		// swap arr[i] and arr[j]
+			swap(data, i, j);
 		}
-	}
-	swap(data, indexSmall + 1, end);
-	return (indexSmall+ 1);
+}
+	// swap arr[i + 1] and arr[end])
+	swap(data, i+1, end);
+    	return (i + 1);
 }
 
 
@@ -33,7 +32,13 @@ public static int partition(int[] data, int start, int end){
 public static void main(String[] args) {
 	int[] arr = {4, 8, 3, 0, 4, 8, 0, 5, 3, 2};
 
-	Quick.partition(arr, 3, 7);
+	for (int x : arr) {
+		System.out.print(x);
+		System.out.print(",  ");
+	}
+	System.out.println();
+
+	Quick.partition(arr, 2, 7);
 
 	for (int x : arr) {
 		System.out.print(x);
