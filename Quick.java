@@ -9,34 +9,40 @@ public static void swap(int[] data, int idxa, int idxb){
 }
 
 
-public static void partition(int[] data, int start, int end){
+public static int partition(int[] data, int start, int end){
 	Random randomGenerator = new Random();
 	int randomIndex = randomGenerator.nextInt(end - start + 1) + start;
 
 	randomIndex = 6;
 
-	int pivot = randomIndex;
-	// System.out.print(randomIndex);
-	// System.out.println();
-	int indexAtLow = start - 1;
-	int indexAtHigh = end;
+	int pivot = data[end];
+	int indexSmall= (start - 1 );
 
-	while(indexAtLow < indexAtHigh){
-		for (indexAtLow++; data[indexAtLow] < pivot; indexAtLow++);
-		for (indexAtHigh--; data[indexAtHigh] > pivot; indexAtHigh--);
-		if (indexAtLow < indexAtHigh)
-		swap(data, indexAtLow, indexAtHigh);
+	for (int indexBig= start; indexBig<= end - 1; indexBig++){
+		if (data[indexBig] <= pivot){
+			indexSmall++;
+			swap(data, indexSmall, indexBig);
+		}
 	}
+	swap(data, indexSmall + 1, end);
+	return (indexSmall+ 1);
 }
 
-public static void main(String[] args) {
-	int[] arr = {4, 78, 23, 10, 4, 8, 0, 5, 3, 2};
 
-	Quick.partition(arr, 0, arr.length - 1);
+
+public static void main(String[] args) {
+	int[] arr = {4, 8, 3, 0, 4, 8, 0, 5, 3, 2};
+
+	Quick.partition(arr, 3, 7);
 
 	for (int x : arr) {
 		System.out.print(x);
-		System.out.print(", ");
+		System.out.print(",  ");
+	}
+	System.out.println();
+	for (int x : new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}) {
+		System.out.print(x);
+		System.out.print(",  ");
 	}
 }
 }
