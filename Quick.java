@@ -27,27 +27,45 @@ public static int partition(int[] data, int start, int end){
     	return (i + 1);
 }
 
+public static void quickSort(int[] arr, int low, int high){
+	if (low < high){
+		/* pi is partitioning index, arr[pi] is now
+           	at right place */
+        	int pi = partition(arr, low, high);
+
+        	quickSort(arr, low, pi - 1);  // Before pi
+        	quickSort(arr, pi + 1, high); // After pi
+    }
+}
+
 
 
 public static void main(String[] args) {
-	int[] arr = {4, 8, 3, 0, 4, 8, 0, 5, 3, 2};
+	// int[] arr = {4, 8, 3, 0, 4, 8, 0, 5, 3, 2};
+	//
+	// for (int x : arr) {
+	// 	System.out.print(x);
+	// 	System.out.print(",  ");
+	// }
+	// System.out.println();
+	//
+	// Quick.partition(arr, 2, 7);
+	//
+	// for (int x : arr) {
+	// 	System.out.print(x);
+	// 	System.out.print(",  ");
+	// }
+	// System.out.println();
+	// for (int x : new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}) {
+	// 	System.out.print(x);
+	// 	System.out.print(",  ");
+	// }
 
-	for (int x : arr) {
+	int[] drr = {4, 8, 3, 0, 4, 8, 0, 5, 3, 2};
+	Quick.quickSort(drr, 0, drr.length - 1);
+	for (int x : drr) {
 		System.out.print(x);
-		System.out.print(",  ");
-	}
-	System.out.println();
-
-	Quick.partition(arr, 2, 7);
-
-	for (int x : arr) {
-		System.out.print(x);
-		System.out.print(",  ");
-	}
-	System.out.println();
-	for (int x : new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}) {
-		System.out.print(x);
-		System.out.print(",  ");
+		System.out.print(", ");
 	}
 }
 }
