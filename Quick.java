@@ -27,6 +27,21 @@ public static int partition(int[] data, int start, int end){
     	return (i + 1);
 }
 
+public static int quickselect(int[] data, int k) {
+	return quickSelectHelper(data, 0, data.length - 1, k);
+}
+
+private static int quickSelectHelper(int[] data, int start, int end, int k) {
+        int location = partition(data, start, end);
+        if(location > k) {
+		return quickSelectHelper(data, start, location - 1, k);
+	}
+        if(location < k) {
+		return quickSelectHelper(data, location + 1, end, k);
+	}
+        return data[k];
+}
+
 public static void quickSort(int[] arr, int low, int high){
 	if (low < high){
 		/* pi is partitioning index, arr[pi] is now
