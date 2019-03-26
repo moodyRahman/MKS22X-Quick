@@ -42,15 +42,19 @@ private static int quickSelectHelper(int[] data, int start, int end, int k) {
         return data[k];
 }
 
-public static void quicksort(int[] arr, int low, int high){
+public static void quicksortH(int[] arr, int low, int high){
 	if (low < high){
 		/* pi is partitioning index, arr[pi] is now
            	at right place */
         	int pi = partition(arr, low, high);
 
-        	quicksort(arr, low, pi - 1);  // Before pi
-        	quicksort(arr, pi + 1, high); // After pi
+        	quicksortH(arr, low, pi - 1);  // Before pi
+        	quicksortH(arr, pi + 1, high); // After pi
     }
+}
+
+public static void quicksort(int[] arr){
+	quicksortH(arr, 0, arr.length - 1);
 }
 
 
@@ -81,7 +85,7 @@ public static void main(String[] args) {
 	for (int x = 0; x < 1000000; x++) {
 		drr[x] = r.nextInt();
 	}
-	Quick.quicksort(drr, 0, drr.length - 1);
+	Quick.quicksort(drr);
 	// for (int x : drr) {
 	// 	System.out.print(x);
 	// 	System.out.print(", ");
