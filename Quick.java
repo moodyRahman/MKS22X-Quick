@@ -27,20 +27,21 @@ public static int partition(int[] data, int start, int end){
     	return (i + 1);
 }
 
-public static void quickSort(int[] arr, int low, int high){
+public static void quicksort(int[] arr, int low, int high){
 	if (low < high){
 		/* pi is partitioning index, arr[pi] is now
            	at right place */
         	int pi = partition(arr, low, high);
 
-        	quickSort(arr, low, pi - 1);  // Before pi
-        	quickSort(arr, pi + 1, high); // After pi
+        	quicksort(arr, low, pi - 1);  // Before pi
+        	quicksort(arr, pi + 1, high); // After pi
     }
 }
 
 
 
 public static void main(String[] args) {
+	Random r = new Random();
 	// int[] arr = {4, 8, 3, 0, 4, 8, 0, 5, 3, 2};
 	//
 	// for (int x : arr) {
@@ -61,11 +62,14 @@ public static void main(String[] args) {
 	// 	System.out.print(",  ");
 	// }
 
-	int[] drr = {4, 8, 3, 0, 4, 8, 0, 5, 3, 2};
-	Quick.quickSort(drr, 0, drr.length - 1);
-	for (int x : drr) {
-		System.out.print(x);
-		System.out.print(", ");
+	int[] drr = new int[1000000];
+	for (int x = 0; x < 1000000; x++) {
+		drr[x] = r.nextInt();
 	}
+	Quick.quicksort(drr, 0, drr.length - 1);
+	// for (int x : drr) {
+	// 	System.out.print(x);
+	// 	System.out.print(", ");
+	// }
 }
 }
