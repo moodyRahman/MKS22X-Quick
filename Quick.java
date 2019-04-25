@@ -10,8 +10,20 @@ public static void swap(int[] data, int idxa, int idxb){
 
 
 public static int partition(int[] data, int start, int end){
-	// pivot (Element to be placed at right position)
+	int midPoint = data[(start+end)/2];
 	int pivot = data[end];
+	// if((data[start] <= data[end] && data[start] >= midPoint) || (data[start] >= data[end] && data[start] <= midPoint)){
+	// 	pivot = start;
+	// }
+	//
+	// if((data[end] <= data[start] && data[end] >= midPoint) || (data[end] >= data[start] && data[end] <= midPoint)){
+      	// 	pivot = end;
+    	// }
+    	// if((midPoint <= data[start] && midPoint >= data[end]) || (midPoint >= data[start] && midPoint <= data[end])){
+      	// 	pivot = (start+end)/2;
+    	// }
+
+	// pivot (Element to be placed at right position)
 	int i = (start - 1);  // Index of smaller element
 	for (int j = start; j <= end- 1; j++){
         // If current element is smaller than or
